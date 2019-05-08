@@ -24,8 +24,8 @@ def engine_meta(dialect, driver, name, password, host):
     :return:
     """
     engine = create_engine(dialect+driver+'://'+name+':'+password+'@'+host)
-    md = db.MetaData(bind=engine, reflect=True)
-    return engine, md
+    meta = db.MetaData(bind=engine, reflect=True)
+    return engine, meta
 
 def explore_tables(eng):
     """
