@@ -34,7 +34,7 @@ def explore_tables(eng):
     print(eng.table_names())
     return None
 
-def table_dump(eng, table_name):
+def table_dump_view(eng, table_name):
     """
     :param eng: 
     :param table_name: 
