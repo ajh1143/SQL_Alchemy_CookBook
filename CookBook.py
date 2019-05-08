@@ -12,9 +12,10 @@ def connector(host, dbname, user, password):
     """
     conn_string = f"host= {host} dbname={dbname} user= {user} password = {password}"
     connection = psycopg2.connect(conn_string)
-    return connection 
+    md = db.MetaData(bind=connection, reflect=True)
+    return connection, md
 
-def engine(dialect, driver, name, password, host):
+def engine_meta(dialect, driver, name, password, host):
     """
     :param dialect:
     :param driver:
