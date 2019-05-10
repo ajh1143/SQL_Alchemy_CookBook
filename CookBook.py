@@ -14,16 +14,17 @@ def connector(host, dbname, user, password):
     connection = psycopg2.connect(conn_string)
     return connection
 
-def engine_meta(dialect, driver, name, password, host):
+def engine_meta(dialect, driver, name, password, host, table):
     """
     :param dialect:
     :param driver:
     :param name:
     :param password:
     :param host:
+    :param table:
     :return:
     """
-    engine = create_engine(dialect+driver+'://'+name+':'+password+'@'+host)
+    engine = create_engine(dialect+driver+'://'+name+':'+password+'@'+host+'/'+table)
     meta = db.MetaData(bind=engine, reflect=True)
     return engine, meta
 
